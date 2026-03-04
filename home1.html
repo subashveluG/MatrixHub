@@ -175,7 +175,7 @@
                 <a href="company.html" class="nav-link">Company</a>
             </nav>
             <div class="nav-actions">
-                <a href="#" class="btn btn-secondary"><i class="ph ph-magnifying-glass"></i></a>
+                <a href="#" class="btn btn-secondary" id="search-trigger"><i class="ph ph-magnifying-glass"></i></a>
                 <a href="auth.html" class="btn btn-primary">Sign In</a>
             </div>
         </div>
@@ -569,6 +569,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay">
+        <div id="search-close" class="search-close">
+            <i class="ph ph-x"></i>
+        </div>
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" class="search-input" placeholder="Search for apps, categories, or collections...">
+            </div>
+            <div class="search-hints">
+                <span style="color: white; font-weight: 600;">Trending:</span>
+                <span class="search-hint">Vortex Studio</span>
+                <span class="search-hint">Orbit Note</span>
+                <span class="search-hint">Gaming</span>
+            </div>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>
