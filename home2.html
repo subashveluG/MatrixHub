@@ -13,270 +13,99 @@
     <link rel="stylesheet" href="index.css">
 
     <style>
-        /* Hype Specific Styles */
-        .nav-scrolled {
-            background: rgba(0, 0, 0, 0.9);
-        }
+        /* Hyper-Animations */
+        @keyframes float {
 
-        .nav {
-            /* Ensures nav matches the darker theme when scrolled */
-        }
-
-        .hype-hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            padding-top: 5rem;
-            background-color: #09090b;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Animated glowing orb behind hero text */
-        .hype-hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80vw;
-            height: 80vw;
-            max-width: 800px;
-            max-height: 800px;
-            background: conic-gradient(from 180deg at 50% 50%, #2a8af6 0deg, #a855f7 180deg, #ec4899 360deg);
-            filter: blur(120px);
-            opacity: 0.6;
-            animation: spin 10s linear infinite;
-            z-index: -1;
-            border-radius: 50%;
-        }
-
-        @keyframes spin {
+            0%,
             100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-
-        .hype-hero h1 {
-            font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 900;
-            line-height: 1;
-            letter-spacing: -0.05em;
-            background: linear-gradient(to bottom right, #ffffff, #a1a1aa);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem;
-            animation: zoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .hype-hero p {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
                 transform: translateY(0);
-            }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s forwards 1.2s;
-        }
-
-        .scroll-line {
-            width: 2px;
-            height: 60px;
-            background: linear-gradient(to bottom, var(--accent-color), transparent);
-            animation: pulse-scroll 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-scroll {
-            0% {
-                transform: scaleY(0);
-                transform-origin: top;
             }
 
             50% {
-                transform: scaleY(1);
-                transform-origin: top;
+                transform: translateY(-20px);
             }
+        }
 
-            50.1% {
-                transform: scaleY(1);
-                transform-origin: bottom;
-            }
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
 
+        @keyframes glowPulse {
+
+            0%,
             100% {
-                transform: scaleY(0);
-                transform-origin: bottom;
+                box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
             }
         }
 
-        /* Featured App Highlight */
-        .showcase-section {
-            padding: 10rem 0;
-            position: relative;
+        .glow-pulse {
+            animation: glowPulse 3s infinite;
         }
 
-        .showcase-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius-lg);
-            padding: 4rem;
-            backdrop-filter: blur(20px);
-            overflow: hidden;
-            position: relative;
+        .parallax-bg {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
         }
 
-        .showcase-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1));
-            z-index: 0;
-        }
-
-        .showcase-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .showcase-content h2 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, #ec4899, #a855f7);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .showcase-content p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .showcase-image-wrapper {
-            position: relative;
-            z-index: 1;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
-            transition: transform 0.5s ease;
-        }
-
-        .showcase-image-wrapper:hover {
-            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg) scale(1.05);
-        }
-
-        .showcase-image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Hover Grid */
-        .hype-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .hype-item {
-            position: relative;
-            border-radius: var(--border-radius-md);
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            cursor: pointer;
-        }
-
-        .hype-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .hype-item-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent 50%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 2rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .hype-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .hype-item:hover .hype-item-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hype-item h3 {
-            font-size: 1.8rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Reveal utility for scroll */
+        /* Enhanced Reveal */
         .reveal {
             opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(50px) scale(0.95);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: blur(10px);
         }
 
         .reveal.active {
             opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        /* Magnetic Interaction */
+        .magnetic-wrap {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Slanted Divider */
+        .slanted-divider {
+            position: relative;
+            height: 15vw;
+            background: var(--bg-color);
+            margin-top: -10vw;
+            z-index: 2;
+            clip-path: polygon(0 0, 100% 30%, 100% 100%, 0 100%);
+        }
+
+        .reveal-stagger>* {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-stagger.active>* {
+            opacity: 1;
             transform: translateY(0);
+        }
+
+        .reveal-stagger.active>*:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-stagger.active>*:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-stagger.active>*:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-stagger.active>*:nth-child(4) {
+            transition-delay: 0.4s;
         }
     </style>
     <link rel="icon" href="favicon.png">
@@ -309,14 +138,16 @@
 
     <main class="main-content" style="padding-top: 0;">
 
-        <section class="hype-hero">
-            <div class="container">
-                <h1>Beyond Limits.</h1>
+        <section class="hype-hero" style="background-attachment: fixed;">
+            <div class="container parallax-bg" style="z-index: 10;">
+                <h1 class="float">Beyond Limits.</h1>
                 <p>Experience applications that redefine what's possible. Immerse yourself in the next generation of
                     digital experiences.</p>
-                <button class="btn btn-primary"
-                    onclick="document.querySelector('.showcase-section').scrollIntoView({behavior: 'smooth'})"
-                    style="padding: 1rem 3rem; font-size: 1.1rem; border-radius: 999px;">Enter the Void</button>
+                <div class="magnetic-wrap">
+                    <button class="btn btn-primary glow-pulse"
+                        onclick="document.querySelector('.showcase-section').scrollIntoView({behavior: 'smooth'})"
+                        style="padding: 1rem 3rem; font-size: 1.1rem; border-radius: 999px;">Enter the Void</button>
+                </div>
             </div>
             <div class="scroll-indicator">
                 <span
@@ -324,6 +155,8 @@
                 <div class="scroll-line"></div>
             </div>
         </section>
+
+        <div class="slanted-divider"></div>
 
         <section class="container showcase-section">
             <div class="showcase-card reveal">
@@ -345,7 +178,7 @@
         </section>
 
         <section class="container" style="padding: 5rem 0 10rem;">
-            <div style="text-align: center; margin-bottom: 5rem;" class="reveal">
+            <div style="text-align: center; margin-bottom: 5rem;" class="reveal-stagger">
                 <h2 style="font-size: 3rem; margin-bottom: 1rem;">Trending Now</h2>
                 <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Discover the apps everyone is
                     talking about.</p>
@@ -460,26 +293,28 @@
         </section>
 
         <!-- Community Feedback (Neon/Hype) -->
-        <section class="container reveal" style="margin: 10rem auto; text-align: center;">
+        <section class="container reveal-stagger" style="margin: 10rem auto; text-align: center;">
             <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 4rem; color: #fff;">The Matrix <span
                     style="color: var(--accent-color);">Pulse</span></h2>
             <div class="grid grid-cols-3" style="gap: 2rem;">
-                <div class="glass-card"
+                <div class="glass-card glow-pulse"
                     style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(59, 130, 246, 0.2); background: rgba(59, 130, 246, 0.05);">
-                    <i class="ph ph-users"
+                    <i class="ph ph-users float"
                         style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
                     <h4 style="font-size: 2.5rem; font-weight: 800; color: #fff;">50M+</h4>
                     <p style="color: var(--text-secondary);">Active Users</p>
                 </div>
                 <div class="glass-card"
                     style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05);">
-                    <i class="ph ph-download-simple" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <i class="ph ph-download-simple float" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"
+                        style="animation-delay: 1s;"></i>
                     <h4 style="font-size: 2.5rem; font-weight: 800; color: #fff;">1.2B</h4>
                     <p style="color: var(--text-secondary);">Downloads</p>
                 </div>
                 <div class="glass-card"
                     style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05);">
-                    <i class="ph ph-star" style="font-size: 3rem; color: #8b5cf6; margin-bottom: 1rem;"></i>
+                    <i class="ph ph-star float" style="font-size: 3rem; color: #8b5cf6; margin-bottom: 1rem;"
+                        style="animation-delay: 2s;"></i>
                     <h4 style="font-size: 2.5rem; font-weight: 800; color: #fff;">4.9/5</h4>
                     <p style="color: var(--text-secondary);">User Rating</p>
                 </div>
@@ -715,26 +550,47 @@
 
     <script src="main.js"></script>
     <script>
-        // Scroll Reveal specific to hype page or anywhere .reveal is used
         document.addEventListener('DOMContentLoaded', () => {
-            const reveals = document.querySelectorAll('.reveal');
+            // Magnetic Button Effect
+            const magneticElements = document.querySelectorAll('.magnetic-wrap');
+            magneticElements.forEach(wrap => {
+                const btn = wrap.querySelector('.btn');
+                wrap.addEventListener('mousemove', (e) => {
+                    const rect = wrap.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+                wrap.addEventListener('mouseleave', () => {
+                    btn.style.transform = `translate(0px, 0px)`;
+                });
+            });
 
-            const revealOptions = {
-                threshold: 0.15,
+            // Parallax Hero Effect
+            const heroContent = document.querySelector('.parallax-bg');
+            window.addEventListener('scroll', () => {
+                const scroll = window.pageYOffset;
+                if (heroContent) {
+                    heroContent.style.transform = `translateY(${scroll * 0.4}px)`;
+                }
+            });
+
+            // Intersection Observer for Reveals
+            const observerOptions = {
+                threshold: 0.1,
                 rootMargin: "0px 0px -50px 0px"
             };
 
-            const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
                     }
                 });
-            }, revealOptions);
+            }, observerOptions);
 
-            reveals.forEach(reveal => {
-                revealOnScroll.observe(reveal);
+            document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+                revealObserver.observe(el);
             });
         });
     </script>
