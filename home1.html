@@ -186,8 +186,12 @@
                 <p>Explore millions of incredible apps for productivity, entertainment, learning, and beyond. Designed
                     specifically for your premium experience.</p>
                 <div class="hero-actions">
-                    <button class="btn btn-primary">Browse Categories</button>
-                    <button class="btn btn-secondary">Top Charts</button>
+                    <button class="btn btn-primary"
+                        onclick="document.getElementById('categories').scrollIntoView({behavior: 'smooth'})">Browse
+                        Categories</button>
+                    <button class="btn btn-secondary"
+                        onclick="document.getElementById('top-charts').scrollIntoView({behavior: 'smooth'})">Top
+                        Charts</button>
                 </div>
             </div>
         </section>
@@ -274,8 +278,41 @@
             </div>
         </section>
 
+        <!-- Categories Section -->
+        <section id="categories" class="animate-fade-in" style="margin-top: 6rem;">
+            <div class="section-title">
+                <h2>Explore Categories</h2>
+            </div>
+            <div class="grid grid-cols-3" style="gap: 2rem;">
+                <a href="category-education.html" class="glass-card"
+                    style="padding: 2.5rem; text-align: center; text-decoration: none; border: 1px solid rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05); transition: transform 0.3s ease;">
+                    <i class="ph ph-graduation-cap"
+                        style="font-size: 3.5rem; color: #10b981; margin-bottom: 1rem; display: block;"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">Educational</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Master new skills with interactive
+                        learning apps.</p>
+                </a>
+                <a href="category-information.html" class="glass-card"
+                    style="padding: 2.5rem; text-align: center; text-decoration: none; border: 1px solid rgba(59, 130, 246, 0.2); background: rgba(59, 130, 246, 0.05); transition: transform 0.3s ease;">
+                    <i class="ph ph-info"
+                        style="font-size: 3.5rem; color: var(--accent-color); margin-bottom: 1rem; display: block;"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">Information</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Stay updated with global news and
+                        research.</p>
+                </a>
+                <a href="category-entertainment.html" class="glass-card"
+                    style="padding: 2.5rem; text-align: center; text-decoration: none; border: 1px solid rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05); transition: transform 0.3s ease;">
+                    <i class="ph ph-play-circle"
+                        style="font-size: 3.5rem; color: #8b5cf6; margin-bottom: 1rem; display: block;"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">Entertainment</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Music, movies, and games at your
+                        fingertips.</p>
+                </a>
+            </div>
+        </section>
+
         <!-- Top Free List Style -->
-        <section class="animate-fade-in stagger-3" style="margin-top: 5rem;">
+        <section id="top-charts" class="animate-fade-in stagger-3" style="margin-top: 5rem;">
             <div class="section-title">
                 <h2>Top Free</h2>
                 <a href="#" class="section-link">See All <i class="ph ph-arrow-right"></i></a>
