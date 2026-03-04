@@ -71,4 +71,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // Mobile Menu Logic
+    const menuToggle = document.createElement('div');
+    menuToggle.className = 'menu-toggle';
+    menuToggle.id = 'menu-toggle';
+    menuToggle.innerHTML = '<span></span><span></span><span></span>';
+
+    const navActions = document.querySelector('.nav-actions');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    if (navActions && navLinksContainer) {
+        navActions.appendChild(menuToggle);
+
+        const toggleMenu = () => {
+            menuToggle.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
+            document.body.style.overflow = navLinksContainer.classList.contains('active') ? 'hidden' : '';
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Close menu on link click (important for SPAs or if staying on same page)
+        const allNavLinks = navLinksContainer.querySelectorAll('.nav-link');
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close on background click (click outside)
+        document.addEventListener('click', (e) => {
+            if (!navLinksContainer.contains(e.target) && !menuToggle.contains(e.target) && navLinksContainer.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    }
 });
