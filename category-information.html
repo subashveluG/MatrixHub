@@ -22,18 +22,57 @@
         }
 
         .category-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #10b981, #059669);
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #ffffff, #a1a1aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .category-hero p {
             font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
             margin: 0 auto;
+        }
+
+        .toolbox-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            background: transparent;
+            border: 1px solid transparent;
+        }
+
+        .toolbox-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .toolbox-icon-wrapper {
+            width: 90px;
+            height: 90px;
+            border-radius: 24px;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .toolbox-item:hover .toolbox-icon-wrapper {
+            transform: scale(1.1);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.3);
+        }
+
+        .toolbox-icon-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Reusing app card styles from index.html */
@@ -272,35 +311,35 @@
                     <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Essential Toolbox</h2>
                     <p style="color: var(--text-secondary);">Utility apps that make your day-to-day life easier.</p>
                 </div>
-                <div class="grid grid-cols-4">
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <div
-                            style="width: 70px; height: 70px; background: var(--accent-color); border-radius: 20px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <i class="ph ph-calculator" style="font-size: 2rem; color: #fff;"></i>
+                <div class="grid grid-cols-4" style="gap: 1rem;">
+                    <div class="toolbox-item">
+                        <div class="toolbox-icon-wrapper">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=400&h=400&fit=crop"
+                                alt="Calc Pro">
                         </div>
                         <h4 style="margin-bottom: 0.5rem;">Calc Pro</h4>
                         <p style="color: var(--text-secondary); font-size: 0.85rem;">Scientific Computing</p>
                     </div>
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <div
-                            style="width: 70px; height: 70px; background: #10b981; border-radius: 20px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <i class="ph ph-translate" style="font-size: 2rem; color: #fff;"></i>
+                    <div class="toolbox-item">
+                        <div class="toolbox-icon-wrapper">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=400&h=400&fit=crop"
+                                alt="SpeakEasy">
                         </div>
                         <h4 style="margin-bottom: 0.5rem;">SpeakEasy</h4>
                         <p style="color: var(--text-secondary); font-size: 0.85rem;">Live Translation</p>
                     </div>
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <div
-                            style="width: 70px; height: 70px; background: #f59e0b; border-radius: 20px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <i class="ph ph-cloud-sun" style="font-size: 2rem; color: #fff;"></i>
+                    <div class="toolbox-item">
+                        <div class="toolbox-icon-wrapper">
+                            <img src="https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=400&h=400&fit=crop"
+                                alt="SkyWatch">
                         </div>
                         <h4 style="margin-bottom: 0.5rem;">SkyWatch</h4>
                         <p style="color: var(--text-secondary); font-size: 0.85rem;">Severe Weather Alerts</p>
                     </div>
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <div
-                            style="width: 70px; height: 70px; background: #8b5cf6; border-radius: 20px; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center;">
-                            <i class="ph ph-map-trifold" style="font-size: 2rem; color: #fff;"></i>
+                    <div class="toolbox-item">
+                        <div class="toolbox-icon-wrapper">
+                            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=400&h=400&fit=crop"
+                                alt="NaviMap">
                         </div>
                         <h4 style="margin-bottom: 0.5rem;">NaviMap</h4>
                         <p style="color: var(--text-secondary); font-size: 0.85rem;">Offline Navigation</p>
