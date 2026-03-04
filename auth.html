@@ -314,14 +314,20 @@
             padding: 12px 45px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: transform 80ms ease-in;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             margin-top: 1rem;
             cursor: pointer;
             width: 100%;
         }
 
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            filter: brightness(1.1);
+        }
+
         button:active {
-            transform: scale(0.95);
+            transform: scale(0.98);
         }
 
         button:focus {
@@ -332,6 +338,29 @@
             background-color: transparent;
             border-color: #ffffff;
             width: auto;
+        }
+
+        button.ghost:hover {
+            background-color: #ffffff;
+            color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .forgot-password {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: block;
+            text-align: right;
+            width: 100%;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .forgot-password:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+            transform: translateX(-5px);
         }
 
         p.form-text {
@@ -379,7 +408,7 @@
 
 <body>
 
-    <a href="home1.html" class="back-home"><i class="ph ph-arrow-left"></i> Home1</a>
+    <a href="home1.html" class="back-home"><i class="ph ph-arrow-left"></i> Back To Home</a>
 
     <div class="glow-sphere sphere-1"></div>
     <div class="glow-sphere sphere-2"></div>
@@ -428,9 +457,7 @@
                     <input type="checkbox" id="rememberMe">
                     <label for="rememberMe" class="checkbox-label">Remember Me</label>
                 </div>
-                <a href="#"
-                    style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; display: block; text-align: right; width: 100%;">Forgot
-                    your password?</a>
+                <a href="#" class="forgot-password">Forgot your password?</a>
                 <button type="submit">Sign In</button>
             </form>
         </div>
