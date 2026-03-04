@@ -251,6 +251,53 @@
             transition: all 0.2s;
         }
 
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 8px 0;
+            gap: 10px;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--surface-border);
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .checkbox-container input[type="checkbox"]:checked::after {
+            content: '\2714';
+            font-size: 12px;
+            color: white;
+            position: absolute;
+        }
+
+        .checkbox-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .checkbox-label a {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
         .input-field:focus {
             outline: none;
             border-color: var(--accent-color);
@@ -353,7 +400,12 @@
                     use your email for registration</span>
                 <input type="text" placeholder="Name" class="input-field" />
                 <input type="email" placeholder="Email" class="input-field" />
-                <input type="password" placeholder="Password" class="input-field" />
+                <input type="password" placeholder="Password" class="input-field" required />
+                <div class="checkbox-container">
+                    <input type="checkbox" id="termsCheckbox" required>
+                    <label for="termsCheckbox" class="checkbox-label">I agree to the <a href="#">Terms &
+                            Conditions</a></label>
+                </div>
                 <button type="submit">Sign Up</button>
             </form>
         </div>
@@ -371,7 +423,11 @@
                     style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem; display: block; text-align: center;">or
                     use your account</span>
                 <input type="email" placeholder="Email" class="input-field" />
-                <input type="password" placeholder="Password" class="input-field" />
+                <input type="password" placeholder="Password" class="input-field" required />
+                <div class="checkbox-container">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe" class="checkbox-label">Remember Me</label>
+                </div>
                 <a href="#"
                     style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 0.5rem; display: block; text-align: right; width: 100%;">Forgot
                     your password?</a>
