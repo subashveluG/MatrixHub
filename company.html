@@ -93,24 +93,46 @@
         }
 
         /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: stretch;
+        }
+
         .pricing-card {
             padding: 3rem 2rem;
             text-align: center;
             border-radius: var(--border-radius-lg);
             border: 1px solid var(--surface-border);
             background: var(--surface-color);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
         }
 
         .pricing-card.premium {
             border-color: var(--accent-color);
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
-            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
         }
 
         .price {
             font-size: 3rem;
             font-weight: 800;
             margin: 1rem 0;
+        }
+
+        .pricing-card ul {
+            flex-grow: 1;
         }
     </style>
     <link rel="icon" href="favicon.png">
@@ -239,7 +261,7 @@
             <h2 style="text-align: center;">Developer Plans</h2>
             <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">Publish your apps on
                 MatrixHub.</p>
-            <div class="grid grid-cols-3" style="max-width: 1000px; margin: 0 auto; align-items: center;">
+            <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Indie</h3>
                     <div class="price">$0<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
@@ -249,9 +271,9 @@
                         <li>Standard Analytics</li>
                         <li>Community Support</li>
                     </ul>
-                    <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: auto;">Get Started</button>
                 </div>
-                <div class="pricing-card premium flex flex-col justify-center">
+                <div class="pricing-card premium">
                     <span
                         style="background: var(--accent-color); color: white; padding: 0.2rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin: 0 auto 1rem; display: inline-block;">POPULAR</span>
                     <h3>Studio</h3>
@@ -263,7 +285,7 @@
                         <li>Priority Support</li>
                         <li>Featured Placement</li>
                     </ul>
-                    <button class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: auto;">Subscribe</button>
                 </div>
                 <div class="pricing-card">
                     <h3>Enterprise</h3>
@@ -274,7 +296,7 @@
                         <li>Custom Analytics API</li>
                         <li>Dedicated Account Manager</li>
                     </ul>
-                    <button class="btn btn-secondary" style="width: 100%;">Contact Sales</button>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: auto;">Contact Sales</button>
                 </div>
             </div>
         </section>
