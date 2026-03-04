@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatrixHub | Company Info</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        .company-header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .company-header h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .sub-nav {
+            position: sticky;
+            top: 70px;
+            z-index: 90;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .sub-nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .sub-nav a:hover {
+            color: var(--text-primary);
+        }
+
+        .section-block {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .section-block h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+        }
+
+        /* Abstract Contact Form Styling */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 600px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .input-group input,
+        .input-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--surface-border);
+            border-radius: var(--border-radius-sm);
+            padding: 1rem;
+            color: white;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--surface-border);
+            background: var(--surface-color);
+        }
+
+        .pricing-card.premium {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+    </style>
+    <link rel="icon" href="favicon.png">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <img src="logo.png" class="logo-icon" alt="MatrixHub"
+                    style="object-fit: contain; background: transparent;">
+                MatrixHub
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="home-hype.html" class="nav-link">Explore</a>
+                <a href="category-education.html" class="nav-link">Educational</a>
+                <a href="category-information.html" class="nav-link">Information</a>
+                <a href="category-entertainment.html" class="nav-link">Entertainment</a>
+                <a href="company.html" class="nav-link active">Company</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-secondary"><i class="ph ph-magnifying-glass"></i></a>
+                <a href="auth.html" class="btn btn-primary">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="company-header container">
+        <h1>Everything MatrixHub</h1>
+        <p style="color: var(--text-secondary); font-size: 1.2rem;">Learn about us, read the latest news, or get in
+            touch.</p>
+    </div>
+
+    <!-- Sticky Sub Nav -->
+    <div class="sub-nav">
+        <a href="#about">About Us</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="section-block">
+            <h2>About Us</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+                        MatrixHub was founded with a singular vision: to curate the world's most premium digital
+                        experiences in one beautifully designed marketplace.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">We believe that
+                        software should not only be functional but breathtakingly beautiful. Our team rigorously
+                        evaluates every application on our platform to ensure it meets our exacting standards for design
+                        and utility.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800&h=600"
+                    alt="Team" style="width: 100%; border-radius: var(--border-radius-lg);">
+            </div>
+        </section>
+
+        <!-- Blogs Section -->
+        <section id="blogs" class="section-block">
+            <h2>Latest Blogs</h2>
+            <div class="grid grid-cols-3">
+                <div class="glass-card" style="padding: 1.5rem;">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=500&h=300"
+                        alt="Blog" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                    <p style="color: var(--accent-color); font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        TECHNOLOGY</p>
+                    <h3 style="margin-bottom: 0.5rem;">The Future of Spatial Computing Apps</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">How AR is reshaping our daily
+                        interactions...</p>
+                </div>
+                <div class="glass-card" style="padding: 1.5rem;">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=500&h=300"
+                        alt="Blog" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                    <p style="color: var(--accent-color); font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        DEVELOPERS</p>
+                    <h3 style="margin-bottom: 0.5rem;">Designing for Dark Mode Ecosystems</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Best practices for creating vibrant UIs
+                        on black...</p>
+                </div>
+                <div class="glass-card" style="padding: 1.5rem;">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=500&h=300"
+                        alt="Blog" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                    <p style="color: var(--accent-color); font-size: 0.8rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        HEALTH</p>
+                    <h3 style="margin-bottom: 0.5rem;">Top 5 Fitness Apps of 2026</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">Elevate your workout with these
+                        AI-powered trackers...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section-block">
+            <h2 style="text-align: center;">Developer Plans</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem;">Publish your apps on
+                MatrixHub.</p>
+            <div class="grid grid-cols-3" style="max-width: 1000px; margin: 0 auto; align-items: center;">
+                <div class="pricing-card">
+                    <h3>Indie</h3>
+                    <div class="price">$0<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
+                    <ul
+                        style="list-style: none; color: var(--text-secondary); display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                        <li>1 App Published</li>
+                        <li>Standard Analytics</li>
+                        <li>Community Support</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%;">Get Started</button>
+                </div>
+                <div class="pricing-card premium flex flex-col justify-center">
+                    <span
+                        style="background: var(--accent-color); color: white; padding: 0.2rem 1rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin: 0 auto 1rem; display: inline-block;">POPULAR</span>
+                    <h3>Studio</h3>
+                    <div class="price">$49<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
+                    <ul
+                        style="list-style: none; color: var(--text-secondary); display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                        <li>10 Apps Published</li>
+                        <li>Advanced Analytics</li>
+                        <li>Priority Support</li>
+                        <li>Featured Placement</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;">Subscribe</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$199<span style="font-size: 1rem; color: var(--text-secondary);">/mo</span></div>
+                    <ul
+                        style="list-style: none; color: var(--text-secondary); display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+                        <li>Unlimited Apps</li>
+                        <li>Custom Analytics API</li>
+                        <li>Dedicated Account Manager</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%;">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-block">
+            <h2>Contact Us</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+                <form class="contact-form">
+                    <div class="input-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="john@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Message</label>
+                        <textarea rows="5" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" style="align-self: flex-start; margin-top: 1rem;">Send
+                        Message</button>
+                </form>
+                <div>
+                    <h3 style="margin-bottom: 1rem;">Headquarters</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        MatrixHub Inc.<br>
+                        101 Innovation Drive<br>
+                        Silicon Valley, CA 94025<br>
+                        United States
+                    </p>
+                    <p style="color: var(--text-secondary); margin-top: 2rem;">
+                        Email: support@nexstore.com<br>
+                        Phone: +1 (555) 123-4567
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer container" style="margin-top: 0; border-top: none;">
+        <div class="footer-inner">
+            <div class="logo">
+                <div class="logo-icon" style="width: 24px; height: 24px;"></div>
+                MatrixHub
+            </div>
+            <p class="footer-text">© 2026 MatrixHub Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
