@@ -41,6 +41,22 @@
             .category-hero {
                 padding: 8rem 0 4rem;
             }
+
+            .subscribe-row {
+                flex-direction: column !important;
+                max-width: 100% !important;
+                padding: 0 1rem;
+            }
+
+            .subscribe-row input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .subscribe-row button {
+                width: 100%;
+                padding: 1rem !important;
+            }
         }
 
         .toolbox-item {
@@ -510,7 +526,7 @@
                         the Matrix.</h2>
                     <p style="font-size: 1.3rem; opacity: 0.9; max-width: 600px; margin: 0 auto 3rem;">Receive our
                         weekly curated intelligence briefing directly in your inbox.</p>
-                    <div style="max-width: 500px; margin: 0 auto; display: flex; gap: 1rem;">
+                    <div class="subscribe-row" style="max-width: 500px; margin: 0 auto; display: flex; gap: 1rem;">
                         <input type="email" placeholder="Enter your email"
                             style="flex: 1; padding: 1.2rem 1.5rem; border-radius: 12px; border: none; font-size: 1.1rem; outline: none;">
                         <button class="btn"
