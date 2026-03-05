@@ -510,31 +510,6 @@
             filter: blur(0);
         }
 
-        /* Ultra-Premium: Custom Cursor */
-        .cursor-follower {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            background: rgba(59, 130, 246, 0.2);
-            border: 2px solid var(--accent-color);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1), background 0.3s ease;
-            transform: translate(-50%, -50%);
-            display: none;
-        }
-
-        @media (hover: hover) {
-            .cursor-follower {
-                display: block;
-            }
-
-            * {
-                cursor: none !important;
-            }
-        }
-
         /* Ultra-Premium: Noise Grain */
         .noise-overlay {
             position: fixed;
@@ -612,7 +587,6 @@
 </head>
 
 <body>
-    <div class="cursor-follower"></div>
     <div class="noise-overlay"></div>
 
     <!-- Header Navigation -->
@@ -955,6 +929,11 @@
                 </a>
                 <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-top: 1rem;">
                     Curating the world's most premium digital experiences in one beautifully designed marketplace.</p>
+                <div class="footer-socials" style="margin-top: 1.5rem;">
+                    <a href="#" class="footer-social-link"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#" class="footer-social-link"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#" class="footer-social-link"><i class="ph ph-github-logo"></i></a>
+                </div>
             </div>
             <div class="footer-links">
                 <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Explore</h4>
@@ -1021,11 +1000,6 @@
             style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;">
             <p class="footer-text" style="color: var(--text-secondary); font-size: 0.9rem;">© 2026 MatrixHub Inc. All
                 rights reserved.</p>
-            <div class="footer-socials">
-                <a href="#" class="footer-social-link"><i class="ph ph-twitter-logo"></i></a>
-                <a href="#" class="footer-social-link"><i class="ph ph-instagram-logo"></i></a>
-                <a href="#" class="footer-social-link"><i class="ph ph-github-logo"></i></a>
-            </div>
         </div>
     </footer>
 
@@ -1132,16 +1106,6 @@
                     btn.style.transform = `translate(0, 0)`;
                 });
             });
-
-            // Custom Cursor Follower
-            const follower = document.querySelector('.cursor-follower');
-            document.addEventListener('mousemove', (e) => {
-                follower.style.left = e.clientX + 'px';
-                follower.style.top = e.clientY + 'px';
-            });
-
-            document.addEventListener('mousedown', () => follower.style.transform = 'translate(-50%, -50%) scale(0.8)');
-            document.addEventListener('mouseup', () => follower.style.transform = 'translate(-50%, -50%) scale(1)');
         });
     </script>
 </body>
