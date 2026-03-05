@@ -16,10 +16,7 @@
         /* Hype Specific Styles */
         .nav-scrolled {
             background: rgba(0, 0, 0, 0.9);
-        }
-
-        .nav {
-            /* Ensures nav matches the darker theme when scrolled */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .hype-hero {
@@ -59,6 +56,20 @@
         @keyframes spin {
             100% {
                 transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: charReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes charReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -146,24 +157,160 @@
             }
         }
 
-        /* Featured App Highlight */
+        /* Cyber Grid Background */
+        /* Cyber Grid Background with Parallax */
+        .cyber-grid {
+            position: absolute;
+            inset: -100px;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Neon Scanline Effect */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg,
+                    rgba(0, 0, 0, 0) 0%,
+                    rgba(59, 130, 246, 0.1) 50%,
+                    rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            animation: scanline 8s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% {
+                bottom: 100%;
+            }
+
+            100% {
+                bottom: -100px;
+            }
+        }
+
+        /* Glitch Effect */
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-text:hover::before,
+        .glitch-text:hover::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #09090b;
+        }
+
+        .glitch-text:hover::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-text:hover::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(31px, 9999px, 94px, 0);
+            }
+
+            20% {
+                clip: rect(62px, 9999px, 42px, 0);
+            }
+
+            40% {
+                clip: rect(16px, 9999px, 78px, 0);
+            }
+
+            60% {
+                clip: rect(87px, 9999px, 12px, 0);
+            }
+
+            80% {
+                clip: rect(43px, 9999px, 55px, 0);
+            }
+
+            100% {
+                clip: rect(2px, 9999px, 89px, 0);
+            }
+        }
+
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(65px, 9999px, 100px, 0);
+            }
+
+            20% {
+                clip: rect(20px, 9999px, 30px, 0);
+            }
+
+            40% {
+                clip: rect(75px, 9999px, 5px, 0);
+            }
+
+            60% {
+                clip: rect(10px, 9999px, 85px, 0);
+            }
+
+            80% {
+                clip: rect(55px, 9999px, 45px, 0);
+            }
+
+            100% {
+                clip: rect(1px, 9999px, 15px, 0);
+            }
+        }
+
+        /* Reduced spacing and enhanced alignment */
         .showcase-section {
-            padding: 10rem 0;
+            padding: 6rem 0;
             position: relative;
         }
 
         .showcase-card {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: 2rem;
             align-items: center;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: var(--border-radius-lg);
-            padding: 4rem;
+            padding: 2rem;
             backdrop-filter: blur(20px);
             overflow: hidden;
             position: relative;
+        }
+
+        .showcase-card .scanline {
+            animation-duration: 4s;
+            opacity: 0.2;
+        }
+
+        @media (min-width: 1024px) {
+            .showcase-card {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+                padding: 4rem;
+            }
         }
 
         .showcase-card::before {
@@ -183,7 +330,7 @@
         }
 
         .showcase-content h2 {
-            font-size: 4rem;
+            font-size: var(--fs-h2);
             margin-bottom: 1rem;
             background: linear-gradient(90deg, #ec4899, #a855f7);
             background-clip: text;
@@ -267,22 +414,206 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Animated floating shapes */
+        .shape {
+            position: absolute;
+            background: linear-gradient(45deg, var(--accent-color), #a855f7);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            filter: blur(40px);
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+            animation: morph 15s linear infinite alternate;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -5%;
+        }
+
+        .shape-2 {
+            width: 400px;
+            height: 400px;
+            bottom: 10%;
+            right: -10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                transform: rotate(0deg) translate(0, 0);
+            }
+
+            100% {
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+                transform: rotate(180deg) translate(30px, 50px);
+            }
+        }
+
+        /* Perspective and Tilt */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.2s ease-out;
+        }
+
+        /* Enhanced Button Glow */
+        .btn-glow {
+            position: relative;
+        }
+
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, var(--accent-color), #a855f7, #ec4899, var(--accent-color));
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: inherit;
+        }
+
+        .btn-glow:hover::after {
+            opacity: 1;
+            animation: glow-rotate 3s linear infinite;
+        }
+
+        @keyframes glow-rotate {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         /* Reveal utility for scroll */
         .reveal {
             opacity: 0;
-            transform: translateY(60px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(40px);
+            filter: blur(10px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+            filter: blur(0);
+        }
+
+        /* Ultra-Premium: Custom Cursor */
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1), background 0.3s ease;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        @media (hover: hover) {
+            .cursor-follower {
+                display: block;
+            }
+
+            * {
+                cursor: none !important;
+            }
+        }
+
+        /* Ultra-Premium: Noise Grain */
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            pointer-events: none;
+            opacity: 0.05;
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+        }
+
+        /* Running Gradient Border */
+        .border-glow {
+            position: relative;
+        }
+
+        .border-glow::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(90deg, #2a8af6, #a855f7, #ec4899, #2a8af6);
+            background-size: 300% 300%;
+            border-radius: inherit;
+            z-index: -1;
+            animation: move-border 4s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes move-border {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Image Bloom Effect */
+        .bloom-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bloom-effect::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, var(--accent-color), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            mix-blend-mode: screen;
+        }
+
+        .bloom-effect:hover::after {
+            opacity: 0.3;
+        }
+
+        .stagger-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            transition-delay: 0.3s;
         }
     </style>
     <link rel="icon" href="favicon.png">
 </head>
 
 <body>
+    <div class="cursor-follower"></div>
+    <div class="noise-overlay"></div>
 
     <!-- Header Navigation -->
     <header class="header">
@@ -303,18 +634,26 @@
             <div class="nav-actions">
                 <a href="#" class="btn btn-secondary" id="search-trigger"><i class="ph ph-magnifying-glass"></i></a>
                 <a href="auth.html" class="btn btn-primary">Sign In</a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
 
     <main class="main-content" style="padding-top: 0;">
+        <div class="cyber-grid"></div>
 
         <section class="hype-hero">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
             <div class="container">
-                <h1>Beyond Limits.</h1>
+                <h1 id="hero-title">Beyond Limits.</h1>
                 <p>Experience applications that redefine what's possible. Immerse yourself in the next generation of
                     digital experiences.</p>
-                <button class="btn btn-primary"
+                <button class="btn btn-primary btn-glow"
                     onclick="document.querySelector('.showcase-section').scrollIntoView({behavior: 'smooth'})"
                     style="padding: 1rem 3rem; font-size: 1.1rem; border-radius: 999px;">Enter the Void</button>
             </div>
@@ -326,7 +665,8 @@
         </section>
 
         <section class="container showcase-section">
-            <div class="showcase-card reveal">
+            <div class="showcase-card reveal tilt-card border-glow">
+                <div class="scanline"></div>
                 <div class="showcase-content">
                     <h2>CyberEdge</h2>
                     <p>The ultimate cyberpunk role-playing experience for your mobile device. Immersive graphics,
@@ -344,9 +684,10 @@
             </div>
         </section>
 
-        <section class="container" style="padding: 5rem 0 10rem;">
-            <div style="text-align: center; margin-bottom: 5rem;" class="reveal">
-                <h2 style="font-size: 3rem; margin-bottom: 1rem;">Trending Now</h2>
+        <section class="container" style="padding: 4rem 0 6rem;">
+            <div style="text-align: center; margin-bottom: 3rem;" class="reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 1rem;" class="glitch-text" data-text="Trending Now">Trending
+                    Now</h2>
                 <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Discover the apps everyone is
                     talking about.</p>
             </div>
@@ -389,7 +730,7 @@
 
         <!-- Trending Now Banner (Hype) -->
         <section class="reveal"
-            style="margin: 8rem 0; position: relative; border-radius: 40px; overflow: hidden; height: 500px; display: flex; align-items: center; justify-content: center; background: url('https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1200&h=600&fit=crop') no-repeat center; background-size: cover; border: 1px solid rgba(255,255,255,0.1);">
+            style="margin: 4rem 0; position: relative; border-radius: 40px; overflow: hidden; height: 500px; display: flex; align-items: center; justify-content: center; background: url('https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1200&h=600&fit=crop') no-repeat center; background-size: cover; border: 1px solid rgba(255,255,255,0.1);">
             <div
                 style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
             </div>
@@ -415,7 +756,7 @@
         </section>
 
         <!-- Weekly Spotlight Cards (Hype) -->
-        <section class="container reveal" style="margin-top: 8rem;">
+        <section class="container reveal" style="margin-top: 4rem;">
             <div class="section-title">
                 <h2 style="font-size: 2.5rem; font-weight: 800; color: #fff;">Weekly Spotlights</h2>
                 <p style="color: var(--text-secondary); margin-top: 0.5rem;">The most innovative creators of the week.
@@ -460,25 +801,25 @@
         </section>
 
         <!-- Community Feedback (Neon/Hype) -->
-        <section class="container reveal" style="margin: 10rem auto; text-align: center;">
+        <section class="container reveal" style="margin: 6rem auto; text-align: center;">
             <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 4rem; color: #fff;">The Matrix <span
                     style="color: var(--accent-color);">Pulse</span></h2>
             <div class="grid grid-cols-3" style="gap: 2rem;">
-                <div class="glass-card"
-                    style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(59, 130, 246, 0.2); background: rgba(59, 130, 246, 0.05);">
+                <div class="glass-card reveal stagger-1"
+                    style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(59, 130, 246, 0.2); background: rgba(59, 130, 246, 0.05); text-align: center;">
                     <i class="ph ph-users"
                         style="font-size: 3rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
                     <h4 style="font-size: 2.5rem; font-weight: 800; color: #fff;">50M+</h4>
                     <p style="color: var(--text-secondary);">Active Users</p>
                 </div>
-                <div class="glass-card"
-                    style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05);">
+                <div class="glass-card reveal stagger-2"
+                    style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.05); text-align: center;">
                     <i class="ph ph-download-simple" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
                     <h4 style="font-size: 2.5rem; font-weight: 800; color: #fff;">1.2B</h4>
                     <p style="color: var(--text-secondary);">Downloads</p>
                 </div>
-                <div class="glass-card"
-                    style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05);">
+                <div class="glass-card reveal stagger-3"
+                    style="padding: 3rem 2rem; border-radius: 24px; border: 1px solid rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05); text-align: center;">
                     <i class="ph ph-star" style="font-size: 3rem; color: #8b5cf6; margin-bottom: 1rem;"></i>
                     <h4 style="font-size: 2.5rem; font-weight: 800; color: #fff;">4.9/5</h4>
                     <p style="color: var(--text-secondary);">User Rating</p>
@@ -488,7 +829,7 @@
 
         <!-- Cyber-Featurette (Mega-Hype) -->
         <section class="reveal"
-            style="margin: 10rem 0; background: #000; position: relative; border-radius: 60px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
+            style="margin: 6rem 0; background: #000; position: relative; border-radius: 60px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
             <div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 600px;">
                 <div
                     style="padding: 5rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);">
@@ -523,7 +864,7 @@
         </section>
 
         <!-- Creator Spotlight (Mega-Hype) -->
-        <section class="container reveal" style="margin-bottom: 10rem;">
+        <section class="container reveal" style="margin-bottom: 6rem;">
             <div style="text-align: center; margin-bottom: 6rem;">
                 <h2 style="font-size: 3.5rem; font-weight: 800; color: #fff;">Legendary <span
                         style="color: var(--accent-color);">Creators</span></h2>
@@ -531,7 +872,7 @@
                     digital pulse.</p>
             </div>
             <div class="grid grid-cols-3" style="gap: 3rem;">
-                <div class="glass-card"
+                <div class="glass-card reveal stagger-1 tilt-card"
                     style="padding: 3rem 2rem; text-align: center; border-radius: 40px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);"
                     onmouseover="this.style.borderColor='var(--accent-color)'; this.style.transform='translateY(-20px)'"
                     onmouseout="this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)'">
@@ -575,7 +916,7 @@
 
         <!-- Developer CTA (Mega-Hype) -->
         <section class="reveal"
-            style="margin: 0 5%; background: linear-gradient(45deg, #000, #1e1b4b); border-radius: 50px; padding: 6rem; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 10rem;">
+            style="margin: 0 5%; background: linear-gradient(45deg, #000, #1e1b4b); border-radius: 50px; padding: 4rem; text-align: center; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 6rem;">
             <div
                 style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: var(--accent-color); filter: blur(150px); opacity: 0.2; border-radius: 50%;">
             </div>
@@ -584,7 +925,7 @@
             </div>
             <h2 style="font-size: 4rem; font-weight: 900; color: #fff; margin-bottom: 1.5rem; letter-spacing: -2px;">ARE
                 YOU A <span
-                    style="background: linear-gradient(90deg, var(--accent-color), #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CREATOR?</span>
+                    style="background: linear-gradient(90deg, var(--accent-color), #8b5cf6); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CREATOR?</span>
             </h2>
             <p
                 style="color: var(--text-secondary); font-size: 1.4rem; max-width: 700px; margin: 0 auto 3rem; line-height: 1.6;">
@@ -663,7 +1004,7 @@
             </div>
             <div class="footer-links">
                 <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Legal</h4>
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem;">
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
                     <li><a href="#" style="color: var(--text-secondary); text-decoration: none; transition: color 0.2s;"
                             onmouseover="this.style.color='var(--accent-color)'"
                             onmouseout="this.style.color='var(--text-secondary)'">Terms of Service</a></li>
@@ -680,16 +1021,10 @@
             style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;">
             <p class="footer-text" style="color: var(--text-secondary); font-size: 0.9rem;">© 2026 MatrixHub Inc. All
                 rights reserved.</p>
-            <div style="display: flex; gap: 1.5rem; color: var(--text-secondary);">
-                <a href="#" style="color: inherit; transition: color 0.2s; font-size: 1.5rem;"
-                    onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='inherit'"><i
-                        class="ph ph-twitter-logo"></i></a>
-                <a href="#" style="color: inherit; transition: color 0.2s; font-size: 1.5rem;"
-                    onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='inherit'"><i
-                        class="ph ph-instagram-logo"></i></a>
-                <a href="#" style="color: inherit; transition: color 0.2s; font-size: 1.5rem;"
-                    onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='inherit'"><i
-                        class="ph ph-github-logo"></i></a>
+            <div class="footer-socials">
+                <a href="#" class="footer-social-link"><i class="ph ph-twitter-logo"></i></a>
+                <a href="#" class="footer-social-link"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#" class="footer-social-link"><i class="ph ph-github-logo"></i></a>
             </div>
         </div>
     </footer>
@@ -720,7 +1055,7 @@
             const reveals = document.querySelectorAll('.reveal');
 
             const revealOptions = {
-                threshold: 0.15,
+                threshold: 0.1,
                 rootMargin: "0px 0px -50px 0px"
             };
 
@@ -728,7 +1063,7 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
+                        // observer.unobserve(entry.target);
                     }
                 });
             }, revealOptions);
@@ -736,6 +1071,77 @@
             reveals.forEach(reveal => {
                 revealOnScroll.observe(reveal);
             });
+
+            // 3D Tilt Effect logic
+            const tiltCards = document.querySelectorAll('.tilt-card');
+
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+                });
+            });
+
+            // Text Split Animation for Hero
+            const heroTitle = document.getElementById('hero-title');
+            if (heroTitle) {
+                const text = heroTitle.innerText;
+                heroTitle.innerHTML = '';
+                [...text].forEach((char, i) => {
+                    const span = document.createElement('span');
+                    span.innerText = char === ' ' ? '\u00A0' : char;
+                    span.className = 'char';
+                    span.style.animationDelay = `${i * 0.05}s`;
+                    heroTitle.appendChild(span);
+                });
+            }
+
+            // Parallax Grid Movement
+            const cyberGrid = document.querySelector('.cyber-grid');
+            document.addEventListener('mousemove', (e) => {
+                const moveX = (e.clientX - window.innerWidth / 2) / 50;
+                const moveY = (e.clientY - window.innerHeight / 2) / 50;
+                if (cyberGrid) {
+                    cyberGrid.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                }
+            });
+
+            // Magnetic Buttons
+            const magneticBtns = document.querySelectorAll('.btn-primary, .btn-secondary');
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = `translate(0, 0)`;
+                });
+            });
+
+            // Custom Cursor Follower
+            const follower = document.querySelector('.cursor-follower');
+            document.addEventListener('mousemove', (e) => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            });
+
+            document.addEventListener('mousedown', () => follower.style.transform = 'translate(-50%, -50%) scale(0.8)');
+            document.addEventListener('mouseup', () => follower.style.transform = 'translate(-50%, -50%) scale(1)');
         });
     </script>
 </body>

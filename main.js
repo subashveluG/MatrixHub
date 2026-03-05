@@ -73,17 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mobile Menu Logic
-    const menuToggle = document.createElement('div');
-    menuToggle.className = 'menu-toggle';
-    menuToggle.id = 'menu-toggle';
-    menuToggle.innerHTML = '<span></span><span></span><span></span>';
+    let menuToggle = document.getElementById('mobile-menu');
+    if (!menuToggle) {
+        menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.id = 'mobile-menu';
+        menuToggle.innerHTML = '<span></span><span></span><span></span>';
+        const navActions = document.querySelector('.nav-actions');
+        if (navActions) navActions.appendChild(menuToggle);
+    }
 
-    const navActions = document.querySelector('.nav-actions');
     const navLinksContainer = document.querySelector('.nav-links');
 
-    if (navActions && navLinksContainer) {
-        navActions.appendChild(menuToggle);
-
+    if (menuToggle && navLinksContainer) {
         const toggleMenu = () => {
             menuToggle.classList.toggle('active');
             navLinksContainer.classList.toggle('active');

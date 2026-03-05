@@ -17,9 +17,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
-            overflow: hidden;
+            padding: 2rem 1rem;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         .back-home {
@@ -384,23 +386,34 @@
                 height: 50%;
             }
 
-            .sign-up-container {
-                top: 50%;
-                left: 0;
-                opacity: 1;
-                z-index: 1;
-            }
-
-            .overlay-container {
-                display: none;
-                /* Hide complex sliding overlay on mobile, rely on stacked forms or a simple toggle. This is a quick fallback. */
-            }
-
-            .auth-container {
-                overflow-y: auto;
-            }
-
             /* Simplified mobile view without JS slider */
+            .auth-container {
+                height: auto;
+                min-height: auto;
+                padding-bottom: 2rem;
+            }
+
+            .form-container {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 2rem;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .sign-up-container {
+                display: none;
+                /* Hide one form by default on mobile for simplicity */
+            }
+
+            .auth-container.right-panel-active .sign-in-container {
+                display: none;
+            }
+
+            .auth-container.right-panel-active .sign-up-container {
+                display: block;
+            }
         }
     </style>
     <link rel="icon" href="favicon.png">

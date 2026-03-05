@@ -14,6 +14,11 @@
   --border-radius-md: 16px;
   --border-radius-lg: 24px;
   --border-radius-pill: 9999px;
+
+  /* Responsive Font Sizes */
+  --fs-h1: clamp(2.5rem, 8vw, 4rem);
+  --fs-h2: clamp(1.8rem, 5vw, 2.5rem);
+  --fs-body: clamp(0.9rem, 2vw, 1rem);
 }
 
 * {
@@ -130,7 +135,13 @@ button {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
 /* Header */
@@ -390,6 +401,8 @@ button {
 .grid {
   display: grid;
   gap: 1.5rem;
+  grid-template-columns: 1fr;
+  /* Default to 1 column for mobile */
 }
 
 @media (min-width: 640px) {
@@ -429,6 +442,26 @@ button {
 .footer-text {
   color: var(--text-secondary);
   font-size: 0.9rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-social-link {
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social-link:hover {
+  color: var(--text-primary);
+  transform: translateY(-3px);
 }
 
 /* Mobile Menu Toggle */

@@ -99,11 +99,17 @@
         /* Pricing Cards */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
             align-items: stretch;
+        }
+
+        @media (min-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .pricing-card {
@@ -162,6 +168,11 @@
             <div class="nav-actions">
                 <a href="#" class="btn btn-secondary" id="search-trigger"><i class="ph ph-magnifying-glass"></i></a>
                 <a href="auth.html" class="btn btn-primary">Sign In</a>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
@@ -190,10 +201,12 @@
             <h2>About Us</h2>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
                 <div>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+                    <p
+                        style="font-size: var(--fs-body); line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
                         MatrixHub was founded with a singular vision: to curate the world's most premium digital
                         experiences in one beautifully designed marketplace.</p>
-                    <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">We believe that
+                    <p style="font-size: var(--fs-body); line-height: 1.8; color: var(--text-secondary);">We believe
+                        that
                         software should not only be functional but breathtakingly beautiful. Our team rigorously
                         evaluates every application on our platform to ensure it meets our exacting standards for design
                         and utility.</p>
@@ -622,7 +635,7 @@
             </div>
             <div class="footer-links">
                 <h4 style="margin-bottom: 1.5rem; font-size: 1.1rem;">Legal</h4>
-                <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.8rem;">
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
                     <li><a href="#" style="color: var(--text-secondary); text-decoration: none; transition: color 0.2s;"
                             onmouseover="this.style.color='var(--accent-color)'"
                             onmouseout="this.style.color='var(--text-secondary)'">Terms of Service</a></li>
@@ -639,16 +652,10 @@
             style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 2rem;">
             <p class="footer-text" style="color: var(--text-secondary); font-size: 0.9rem;">© 2026 MatrixHub Inc. All
                 rights reserved.</p>
-            <div style="display: flex; gap: 1.5rem; color: var(--text-secondary);">
-                <a href="#" style="color: inherit; transition: color 0.2s; font-size: 1.5rem;"
-                    onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='inherit'"><i
-                        class="ph ph-twitter-logo"></i></a>
-                <a href="#" style="color: inherit; transition: color 0.2s; font-size: 1.5rem;"
-                    onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='inherit'"><i
-                        class="ph ph-instagram-logo"></i></a>
-                <a href="#" style="color: inherit; transition: color 0.2s; font-size: 1.5rem;"
-                    onmouseover="this.style.color='var(--text-primary)'" onmouseout="this.style.color='inherit'"><i
-                        class="ph ph-github-logo"></i></a>
+            <div class="footer-socials">
+                <a href="#" class="footer-social-link"><i class="ph ph-twitter-logo"></i></a>
+                <a href="#" class="footer-social-link"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#" class="footer-social-link"><i class="ph ph-github-logo"></i></a>
             </div>
         </div>
     </footer>
