@@ -446,17 +446,18 @@ button {
 
 .footer-socials {
   display: flex;
-  gap: 1.5rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.825rem;
+  margin-top: 1.5rem;
 }
 
 .footer-social-link {
   color: var(--text-secondary);
-  font-size: 1.25rem;
+  font-size: 1rem;
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.8rem;
 }
 
 .footer-social-link:hover {
