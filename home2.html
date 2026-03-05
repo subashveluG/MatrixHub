@@ -582,6 +582,33 @@
         .stagger-3 {
             transition-delay: 0.3s;
         }
+
+        /* Quantum Drift mobile fix */
+        @media (max-width: 768px) {
+            .cyber-featurette-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .cyber-featurette-grid>div:last-child {
+                display: none;
+            }
+
+            .cyber-featurette-grid>div:first-child {
+                padding: 2.5rem 1.5rem !important;
+            }
+
+            .cyber-featurette-grid h2 {
+                font-size: 2.2rem !important;
+            }
+
+            .cyber-featurette-grid p {
+                font-size: 1rem !important;
+            }
+
+            .cyber-featurette-grid .btn-row {
+                flex-wrap: wrap;
+            }
+        }
     </style>
     <link rel="icon" href="favicon.png">
 </head>
@@ -804,7 +831,8 @@
         <!-- Cyber-Featurette (Mega-Hype) -->
         <section class="reveal"
             style="margin: 6rem 0; background: #000; position: relative; border-radius: 60px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 600px;">
+            <div class="cyber-featurette-grid"
+                style="display: grid; grid-template-columns: 1fr 1fr; min-height: 600px;">
                 <div
                     style="padding: 5rem; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);">
                     <div
