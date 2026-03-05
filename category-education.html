@@ -40,6 +40,21 @@
             .category-hero {
                 padding: 8rem 0 4rem;
             }
+
+            .enroll-card {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 1.2rem !important;
+            }
+
+            .enroll-card .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .enroll-card>div {
+                width: 100%;
+            }
         }
 
         /* Reusing app card styles from index.html */
@@ -327,7 +342,7 @@
                         industry-leading certifications.</p>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div class="glass-card"
+                    <div class="glass-card enroll-card"
                         style="padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-radius: 20px;">
                         <div style="display: flex; gap: 2rem; align-items: center;">
                             <div
@@ -340,9 +355,10 @@
                                     Google Cloud infrastructures.</p>
                             </div>
                         </div>
-                        <button class="btn btn-secondary" style="padding: 0.8rem 2rem;">Enroll Now</button>
+                        <button class="btn btn-secondary" style="padding: 0.8rem 2rem; white-space: nowrap;">Enroll
+                            Now</button>
                     </div>
-                    <div class="glass-card"
+                    <div class="glass-card enroll-card"
                         style="padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-radius: 20px;">
                         <div style="display: flex; gap: 2rem; align-items: center;">
                             <div
@@ -355,7 +371,8 @@
                                     network defense, and cryptography.</p>
                             </div>
                         </div>
-                        <button class="btn btn-secondary" style="padding: 0.8rem 2rem;">Enroll Now</button>
+                        <button class="btn btn-secondary" style="padding: 0.8rem 2rem; white-space: nowrap;">Enroll
+                            Now</button>
                     </div>
                 </div>
             </section>
