@@ -505,7 +505,7 @@ button {
 .footer {
   border-top: 1px solid var(--surface-border);
   background: linear-gradient(to bottom, transparent, rgba(9, 9, 11, 0.4));
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .footer-top {
@@ -584,11 +584,12 @@ button {
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 2.5rem 0;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
+  text-align: center;
 }
 
 .footer-text {
