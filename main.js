@@ -1,114 +1,153 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Sticky Header Scroll Effect
-    const header = document.querySelector('.header');
+    // Scroll Reveal Intersection Observer
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
 
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Ensure Noise Overlay exists
+    if (!document.querySelector('.noise-overlay')) {
+        const noise = document.createElement('div');
+        noise.className = 'noise-overlay';
+        document.body.prepend(noise);
+    }
+
+    // Header Blur Effect on Scroll
+    const header = document.querySelector('.header');
     if (header) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            if (window.scrollY > 20) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
-        });
+        }, { passive: true });
     }
 
-    // Set active nav link based on current path
-    const currentPath = window.location.pathname;
+    // Active Link Logic
+    const currentPath = window.location.pathname.split('/').pop() || 'home1.html';
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        // Simple matching logic. Might need adjustment if you serve from a subfolder.
-        if (href === currentPath || (currentPath === '/' && href === 'index.html')) {
-            link.classList.add('active');
-        } else if (currentPath.includes(href) && href !== 'index.html') {
+        if (href === currentPath) {
             link.classList.add('active');
         } else {
-            // Also check for exact match ignoring trailing slash
             link.classList.remove('active');
         }
     });
 
-    // Search Overlay Logic
-    const searchTrigger = document.getElementById('search-trigger');
-    const searchOverlay = document.getElementById('search-overlay');
-    const searchClose = document.getElementById('search-close');
-    const searchInput = document.querySelector('.search-input');
-
-    const toggleSearch = (show) => {
-        if (!searchOverlay || !searchInput) return;
-        if (show) {
-            searchOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => searchInput.focus(), 100);
-        } else {
-            searchOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    };
-
-    if (searchTrigger && searchOverlay) {
-        searchTrigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            toggleSearch(true);
-        });
-
-        if (searchClose) {
-            searchClose.addEventListener('click', () => toggleSearch(false));
-        }
-
-        // Close on ESC key
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
-                toggleSearch(false);
-            }
-        });
-
-        // Close on background click
-        searchOverlay.addEventListener('click', (e) => {
-            if (e.target === searchOverlay) {
-                toggleSearch(false);
-            }
-        });
-    }
-
-    // Mobile Menu Logic
-    let menuToggle = document.getElementById('mobile-menu');
-    if (!menuToggle) {
-        menuToggle = document.createElement('div');
-        menuToggle.className = 'menu-toggle';
-        menuToggle.id = 'mobile-menu';
-        menuToggle.innerHTML = '<span></span><span></span><span></span>';
-        const navActions = document.querySelector('.nav-actions');
-        if (navActions) navActions.appendChild(menuToggle);
-    }
-
+    // Mobile Menu
+    const menuToggle = document.getElementById('mobile-menu');
     const navLinksContainer = document.querySelector('.nav-links');
 
     if (menuToggle && navLinksContainer) {
-        const toggleMenu = () => {
+        menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinksContainer.classList.toggle('active');
             document.body.style.overflow = navLinksContainer.classList.contains('active') ? 'hidden' : '';
-        };
+        });
 
-        menuToggle.addEventListener('click', toggleMenu);
-
-        // Close menu on link click (important for SPAs or if staying on same page)
-        const allNavLinks = navLinksContainer.querySelectorAll('.nav-link');
-        allNavLinks.forEach(link => {
+        // Close menu on link click
+        navLinksContainer.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinksContainer.classList.remove('active');
                 document.body.style.overflow = '';
             });
         });
+    }
 
-        // Close on background click (click outside)
-        document.addEventListener('click', (e) => {
-            if (!navLinksContainer.contains(e.target) && !menuToggle.contains(e.target) && navLinksContainer.classList.contains('active')) {
-                toggleMenu();
-            }
+    // Search Overlay
+    const searchTrigger = document.getElementById('search-trigger');
+    const searchOverlay = document.getElementById('search-overlay');
+    const searchClose = document.getElementById('search-close');
+    const searchInput = document.querySelector('.search-input');
+
+    if (searchTrigger && searchOverlay) {
+        searchTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            searchOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            if (searchInput) setTimeout(() => searchInput.focus(), 300);
+        });
+
+        const closeSearch = () => {
+            searchOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (searchClose) searchClose.addEventListener('click', closeSearch);
+        searchOverlay.addEventListener('click', (e) => {
+            if (e.target === searchOverlay) closeSearch();
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeSearch();
         });
     }
+
+    // 3D Tilt Effect
+    const tiltCards = document.querySelectorAll('.tilt-card, .app-card, .glass-card:not(.no-tilt)');
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        });
+    });
+
+    // Magnetic Elements
+    const magneticElements = document.querySelectorAll('.btn, .logo, .footer-social-link');
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+            el.style.transform = `translate(0, 0)`;
+        });
+    });
+
+    // Parallax Grid
+    const cyberGrid = document.querySelector('.cyber-grid');
+    if (cyberGrid) {
+        document.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) / 50;
+            const moveY = (e.clientY - window.innerHeight / 2) / 50;
+            cyberGrid.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    }
+
+    // Text Split Animation
+    const splitTexts = document.querySelectorAll('.split-text');
+    splitTexts.forEach(el => {
+        const text = el.innerText;
+        el.innerHTML = '';
+        [...text].forEach((char, i) => {
+            const span = document.createElement('span');
+            span.innerText = char === ' ' ? '\u00A0' : char;
+            span.className = 'char';
+            span.style.animationDelay = `${i * 0.05}s`;
+            el.appendChild(span);
+        });
+    });
 });
