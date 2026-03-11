@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const setupDownloadButtons = () => {
-            const getButtons = document.querySelectorAll('.get-btn, .btn-primary:not(.hero-actions .btn), .btn-secondary:not(.hero-actions .btn)');
+            const getButtons = document.querySelectorAll('.get-btn');
             getButtons.forEach(btn => {
                 // Skip navigation and hero buttons
                 if (btn.closest('.nav-actions') || btn.closest('.hero-actions')) return;
