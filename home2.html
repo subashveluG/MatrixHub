@@ -197,13 +197,11 @@
         .showcase-card {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.03);
+            gap: 0;
+            align-items: stretch;
+            background: #000;
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            backdrop-filter: blur(20px);
             overflow: hidden;
             position: relative;
         }
@@ -215,9 +213,8 @@
 
         @media (min-width: 1024px) {
             .showcase-card {
-                grid-template-columns: 1fr 1fr;
-                gap: 4rem;
-                padding: 4rem;
+                grid-template-columns: 1fr 1.2fr;
+                gap: 0;
             }
         }
 
@@ -235,6 +232,13 @@
         .showcase-content {
             position: relative;
             z-index: 1;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(168, 85, 247, 0.2));
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
         }
 
         .showcase-content h2 {
@@ -247,19 +251,20 @@
         }
 
         .showcase-content p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2.5rem;
+            max-width: 450px;
         }
 
         .showcase-image-wrapper {
             position: relative;
             z-index: 1;
-            border-radius: var(--border-radius-lg);
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
             transition: transform 0.5s ease;
+            height: 100%;
+            display: flex;
         }
 
         .showcase-image-wrapper:hover {
@@ -268,7 +273,8 @@
 
         .showcase-image-wrapper img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
