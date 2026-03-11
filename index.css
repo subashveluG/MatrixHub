@@ -173,7 +173,7 @@ button {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
 
 @media (min-width: 768px) {
@@ -641,7 +641,7 @@ button {
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 2rem 0;
+    padding: 2.5rem 1rem;
   }
 }
 
