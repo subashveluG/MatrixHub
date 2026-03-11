@@ -168,5 +168,101 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Download Modal Logic
+    const initDownloadModal = () => {
+        // Create modal structure if not exists
+        if (!document.getElementById('download-modal-overlay')) {
+            const modalHTML = `
+                <div id="download-modal-overlay" class="download-modal-overlay">
+                    <div class="download-modal glass">
+                        <button class="modal-close-btn" id="modal-close"><i class="ph ph-x"></i></button>
+                        <img src="" alt="App Icon" class="download-app-icon" id="modal-app-icon">
+                        <h2 id="modal-app-title">App Name</h2>
+                        <p id="modal-app-desc">Ready to experience something extraordinary? Your download is just a click away.</p>
+                        <div class="download-modal-actions">
+                            <button class="btn btn-primary" id="confirm-download">Download Now</button>
+                            <button class="btn btn-secondary" id="cancel-download">Maybe Later</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        const overlay = document.getElementById('download-modal-overlay');
+        const closeBtn = document.getElementById('modal-close');
+        const cancelBtn = document.getElementById('cancel-download');
+        const confirmBtn = document.getElementById('confirm-download');
+        const modalIcon = document.getElementById('modal-app-icon');
+        const modalTitle = document.getElementById('modal-app-title');
+
+        const closeModal = () => {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        const setupDownloadButtons = () => {
+            const getButtons = document.querySelectorAll('.get-btn, .btn-primary:not(.hero-actions .btn), .btn-secondary:not(.hero-actions .btn)');
+            getButtons.forEach(btn => {
+                // Skip navigation and hero buttons
+                if (btn.closest('.nav-actions') || btn.closest('.hero-actions')) return;
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Try to find app details from parent card
+                    const card = btn.closest('.glass-card, .app-card');
+                    if (card) {
+                        const icon = card.querySelector('.app-icon, img');
+                        const title = card.querySelector('h3, h4');
+
+                        if (icon) modalIcon.src = icon.src;
+                        if (title) modalTitle.innerText = title.innerText;
+                    } else {
+                        // Fallback
+                        modalTitle.innerText = "Premium Experience";
+                        modalIcon.src = "logo.png";
+                    }
+
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+        if (confirmBtn) {
+            confirmBtn.addEventListener('click', () => {
+                const originalText = confirmBtn.innerText;
+                confirmBtn.innerText = "Starting Download...";
+                confirmBtn.style.opacity = "0.7";
+                confirmBtn.disabled = true;
+
+                setTimeout(() => {
+                    confirmBtn.innerText = "Download Complete!";
+                    confirmBtn.style.background = "#10b981";
+                    setTimeout(() => {
+                        closeModal();
+                        // Reset for next time
+                        confirmBtn.innerText = originalText;
+                        confirmBtn.style.background = "";
+                        confirmBtn.style.opacity = "";
+                        confirmBtn.disabled = false;
+                    }, 1500);
+                }, 2000);
+            });
+        }
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeModal();
+        });
+
+        // Initial setup
+        setupDownloadButtons();
+    };
+
+    initDownloadModal();
 });
 
