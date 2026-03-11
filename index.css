@@ -599,6 +599,41 @@ button {
   font-size: 0.95rem;
 }
 
+@media screen and (max-width: 768px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+
+  .footer-brand,
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-brand p {
+    margin: 1.5rem auto 0;
+  }
+
+  .footer-social-group {
+    justify-content: center;
+  }
+
+  .footer-social-group.vertical {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
 /* Section Utilities */
 .section-padding {
   padding: 3rem 0;
@@ -678,6 +713,10 @@ button {
   .menu-toggle.active span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
+
+  .nav-actions .btn-primary {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -685,10 +724,6 @@ button {
     width: 100%;
     max-width: 100%;
     border-left: none;
-  }
-
-  .nav-actions .btn-primary {
-    display: none;
   }
 }
 
