@@ -398,7 +398,7 @@
             }
 
             .overlay-container {
-                display: none;
+                display: none !important;
             }
 
             /* Simplified mobile view without JS slider */
@@ -412,9 +412,15 @@
                 position: relative;
                 width: 100%;
                 height: auto;
-                padding: 2rem;
+                padding: 2.5rem 1.5rem;
                 opacity: 1 !important;
                 transform: none !important;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(20px);
+                border-radius: var(--border-radius-lg);
+                margin-bottom: 2rem;
+                z-index: 10 !important;
             }
 
             .sign-up-container {
