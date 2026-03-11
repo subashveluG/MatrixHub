@@ -375,15 +375,30 @@
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .auth-container {
-                min-height: 800px;
+                min-height: auto;
+                height: auto;
                 display: flex;
                 flex-direction: column;
+                overflow: visible;
+                background: transparent;
+                border: none;
+                box-shadow: none;
             }
 
-            .sign-in-container,
-            .sign-up-container {
+            .form-container {
+                position: relative;
                 width: 100%;
-                height: 50%;
+                height: auto;
+                padding: 2.5rem 1.5rem;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(20px);
+                border-radius: var(--border-radius-lg);
+                margin-bottom: 2rem;
+            }
+
+            .overlay-container {
+                display: none;
             }
 
             /* Simplified mobile view without JS slider */
@@ -403,12 +418,11 @@
             }
 
             .sign-up-container {
-                display: none;
-                /* Hide one form by default on mobile for simplicity */
+                display: block;
             }
 
             .auth-container.right-panel-active .sign-in-container {
-                display: none;
+                display: block;
             }
 
             .auth-container.right-panel-active .sign-up-container {
