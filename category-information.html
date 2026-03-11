@@ -100,6 +100,26 @@
             object-fit: cover;
         }
 
+        .hub-resource-link {
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .hub-resource-link:hover {
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
+            color: #60a5fa;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
         /* Reusing app card styles from index.html */
         .app-card {
             padding: 1.5rem;
@@ -510,9 +530,7 @@
                                     <p
                                         style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
                                         A 50-page deep dive into the regulatory future of generative agents.</p>
-                                    <a href="#"
-                                        style="font-weight: 700; color: var(--accent-color); text-decoration: none; margin-top: auto;">Download
-                                        PDF</a>
+                                    <a href="#" class="hub-resource-link" style="margin-top: auto;">Download PDF</a>
                                 </div>
                                 <div class="glass-card"
                                     style="padding: 2.5rem; border-radius: 20px; display: flex; flex-direction: column; align-items: center; text-align: center;">
@@ -522,9 +540,7 @@
                                     <p
                                         style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
                                         Comprehensive data on market shifts and developer sentiment.</p>
-                                    <a href="#"
-                                        style="font-weight: 700; color: var(--accent-color); text-decoration: none; margin-top: auto;">Download
-                                        PDF</a>
+                                    <a href="#" class="hub-resource-link" style="margin-top: auto;">Download PDF</a>
                                 </div>
                                 <div class="glass-card"
                                     style="padding: 2.5rem; border-radius: 20px; display: flex; flex-direction: column; align-items: center; text-align: center;">
@@ -534,9 +550,7 @@
                                     <p
                                         style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
                                         An interactive dataset covering digital growth in 140 nations.</p>
-                                    <a href="#"
-                                        style="font-weight: 700; color: var(--accent-color); text-decoration: none; margin-top: auto;">Access
-                                        Data</a>
+                                    <a href="#" class="hub-resource-link" style="margin-top: auto;">Access Data</a>
                                 </div>
                             </div>
                         </div>
