@@ -124,6 +124,17 @@
             background: var(--text-primary);
             color: var(--bg-color);
         }
+
+        /* Hover effects for Kids Corner buttons */
+        .kids-btn {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+
+        .kids-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.1);
+        }
     </style>
     <link rel="icon" href="favicon.png">
 </head>
@@ -242,39 +253,44 @@
                 </div>
                 <!-- STEM Discovery Section -->
                 <section class="section-padding reveal">
-                    <div class="section-title"
-                        style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
-                        <h2 style="font-size: 2rem; font-weight: 800; color: #fff;">STEM Discovery</h2>
-                        <a href="#" class="section-link">See All STEM <i class="ph ph-arrow-right"></i></a>
-                    </div>
-                    <div class="grid grid-cols-3">
-                        <div class="glass-card"
-                            style="padding: 2rem; border-radius: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                            <i class="ph ph-atom"
-                                style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
-                            <h3 style="margin-bottom: 0.5rem;">PhysicsLab VR</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                                Experience
-                                complex physics experiments in a safe, virtual environment.</p>
-                            <button class="get-btn" style="width: 100%;">Get App</button>
+                    <div class="container">
+                        <div class="section-title"
+                            style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+                            <h2 style="font-size: 2rem; font-weight: 800; color: #fff;">STEM Discovery</h2>
+                            <a href="#" class="section-link">See All STEM <i class="ph ph-arrow-right"></i></a>
                         </div>
-                        <div class="glass-card"
-                            style="padding: 2rem; border-radius: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                            <i class="ph ph-dna" style="font-size: 2.5rem; color: #10b981; margin-bottom: 1rem;"></i>
-                            <h3 style="margin-bottom: 0.5rem;">BioExplorer</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
-                                Interactive
-                                3D models of human anatomy and cellular biology.</p>
-                            <button class="get-btn" style="width: 100%;">Get App</button>
-                        </div>
-                        <div class="glass-card"
-                            style="padding: 2rem; border-radius: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                            <i class="ph ph-code" style="font-size: 2.5rem; color: #8b5cf6; margin-bottom: 1rem;"></i>
-                            <h3 style="margin-bottom: 0.5rem;">Algorithm Master</h3>
-                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">Master
-                                data
-                                structures and algorithms with gamified challenges.</p>
-                            <button class="get-btn" style="width: 100%;">Get App</button>
+                        <div class="grid grid-cols-3">
+                            <div class="glass-card"
+                                style="padding: 2rem; border-radius: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                                <i class="ph ph-atom"
+                                    style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
+                                <h3 style="margin-bottom: 0.5rem;">PhysicsLab VR</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                                    Experience
+                                    complex physics experiments in a safe, virtual environment.</p>
+                                <button class="get-btn" style="width: 100%;">Get App</button>
+                            </div>
+                            <div class="glass-card"
+                                style="padding: 2rem; border-radius: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                                <i class="ph ph-dna"
+                                    style="font-size: 2.5rem; color: #10b981; margin-bottom: 1rem;"></i>
+                                <h3 style="margin-bottom: 0.5rem;">BioExplorer</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                                    Interactive
+                                    3D models of human anatomy and cellular biology.</p>
+                                <button class="get-btn" style="width: 100%;">Get App</button>
+                            </div>
+                            <div class="glass-card"
+                                style="padding: 2rem; border-radius: 20px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                                <i class="ph ph-code"
+                                    style="font-size: 2.5rem; color: #8b5cf6; margin-bottom: 1rem;"></i>
+                                <h3 style="margin-bottom: 0.5rem;">Algorithm Master</h3>
+                                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                                    Master
+                                    data
+                                    structures and algorithms with gamified challenges.</p>
+                                <button class="get-btn" style="width: 100%;">Get App</button>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -307,39 +323,41 @@
 
                 <!-- Creative Arts & Design -->
                 <section class="section-padding reveal">
-                    <div class="section-title"
-                        style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
-                        <h2 style="font-size: 2rem; font-weight: 800; color: #fff;">Creative Arts & Design</h2>
-                        <a href="#" class="section-link">Explore Arts <i class="ph ph-arrow-right"></i></a>
-                    </div>
-                    <div class="grid grid-cols-4" style="gap: 2rem;">
-                        <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
-                            <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=400&h=250&fit=crop"
-                                alt="ArtFlow"
-                                style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
-                            <h4 style="margin-bottom: 0.5rem;">ArtFlow</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Digital Painting</p>
+                    <div class="container">
+                        <div class="section-title"
+                            style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem;">
+                            <h2 style="font-size: 2rem; font-weight: 800; color: #fff;">Creative Arts & Design</h2>
+                            <a href="#" class="section-link">Explore Arts <i class="ph ph-arrow-right"></i></a>
                         </div>
-                        <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
-                            <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=400&h=250&fit=crop"
-                                alt="MelodyKey"
-                                style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
-                            <h4 style="margin-bottom: 0.5rem;">MelodyKey</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Music Theory</p>
-                        </div>
-                        <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
-                            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=250&fit=crop"
-                                alt="FashionHub"
-                                style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
-                            <h4 style="margin-bottom: 0.5rem;">FashionHub</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Apparel Design</p>
-                        </div>
-                        <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
-                            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=250&fit=crop"
-                                alt="PhotoMaster"
-                                style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
-                            <h4 style="margin-bottom: 0.5rem;">PhotoMaster</h4>
-                            <p style="color: var(--text-secondary); font-size: 0.85rem;">Lens & Exposure</p>
+                        <div class="grid grid-cols-4" style="gap: 2rem;">
+                            <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
+                                <img src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=400&h=250&fit=crop"
+                                    alt="ArtFlow"
+                                    style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
+                                <h4 style="margin-bottom: 0.5rem;">ArtFlow</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.85rem;">Digital Painting</p>
+                            </div>
+                            <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
+                                <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=400&h=250&fit=crop"
+                                    alt="MelodyKey"
+                                    style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
+                                <h4 style="margin-bottom: 0.5rem;">MelodyKey</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.85rem;">Music Theory</p>
+                            </div>
+                            <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
+                                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=250&fit=crop"
+                                    alt="FashionHub"
+                                    style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
+                                <h4 style="margin-bottom: 0.5rem;">FashionHub</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.85rem;">Apparel Design</p>
+                            </div>
+                            <div class="glass-card" style="padding: 1.5rem; border-radius: 24px; text-align: center;">
+                                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=250&fit=crop"
+                                    alt="PhotoMaster"
+                                    style="width: 100%; height: 120px; border-radius: 16px; margin-bottom: 1rem; object-fit: cover;">
+                                <h4 style="margin-bottom: 0.5rem;">PhotoMaster</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.85rem;">Lens & Exposure</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -391,35 +409,44 @@
 
                 <!-- Kids Learning Corner -->
                 <section class="section-padding reveal">
-                    <div style="text-align: center; margin-bottom: 4rem;">
-                        <h2
-                            style="font-size: 3rem; font-weight: 900; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-                            Kids Learning Corner</h2>
-                        <p style="color: var(--text-secondary); font-size: 1.2rem; margin-top: 1rem;">Adventure-filled
-                            learning for young minds.</p>
-                    </div>
-                    <div class="grid grid-cols-2" style="gap: 2rem;">
-                        <div
-                            style="background: #ffbe0b; border-radius: 30px; padding: 3rem; color: #000; position: relative; overflow: hidden;">
-                            <i class="ph ph-rocket"
-                                style="position: absolute; bottom: -20px; right: -20px; font-size: 10rem; opacity: 0.2;"></i>
-                            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Space Explorer</h3>
-                            <p style="font-weight: 500; font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem;">Journey
-                                through the solar system with fun animations and games.</p>
-                            <button class="btn"
-                                style="background: #000; color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 700;">Join
-                                Mission</button>
+                    <div class="container">
+                        <div style="text-align: center; margin-bottom: 4rem;">
+                            <h2
+                                style="font-size: 3rem; font-weight: 900; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                                Kids Learning Corner</h2>
+                            <p style="color: var(--text-secondary); font-size: 1.2rem; margin-top: 1rem;">
+                                Adventure-filled
+                                learning for young minds.</p>
                         </div>
-                        <div
-                            style="background: #fb5607; border-radius: 30px; padding: 3rem; color: #fff; position: relative; overflow: hidden;">
-                            <i class="ph ph-tree-evergreen"
-                                style="position: absolute; bottom: -20px; right: -20px; font-size: 10rem; opacity: 0.2;"></i>
-                            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Nature Quest</h3>
-                            <p style="font-weight: 500; font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem;">Discover
-                                animals, plants, and the magic of our planet in 3D.</p>
-                            <button class="btn"
-                                style="background: #fff; color: #000; padding: 1rem 2rem; border-radius: 12px; font-weight: 700;">Start
-                                Quest</button>
+                        <div class="grid grid-cols-2" style="gap: 2rem; align-items: stretch;">
+                            <div
+                                style="background: #ffbe0b; border-radius: 30px; padding: 3rem; color: #000; position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+                                <i class="ph ph-rocket"
+                                    style="position: absolute; bottom: -20px; right: -20px; font-size: 10rem; opacity: 0.2;"></i>
+                                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Space Explorer</h3>
+                                <p style="font-weight: 500; font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem;">
+                                    Journey
+                                    through the solar system with fun animations and games.</p>
+                                <div style="margin-top: auto;">
+                                    <button class="btn kids-btn"
+                                        style="background: #000; color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 700;">Join
+                                        Mission</button>
+                                </div>
+                            </div>
+                            <div
+                                style="background: #fb5607; border-radius: 30px; padding: 3rem; color: #fff; position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%;">
+                                <i class="ph ph-tree-evergreen"
+                                    style="position: absolute; bottom: -20px; right: -20px; font-size: 10rem; opacity: 0.2;"></i>
+                                <h3 style="font-size: 2rem; margin-bottom: 1rem;">Nature Quest</h3>
+                                <p style="font-weight: 500; font-size: 1.1rem; opacity: 0.8; margin-bottom: 2rem;">
+                                    Discover
+                                    animals, plants, and the magic of our planet in 3D.</p>
+                                <div style="margin-top: auto;">
+                                    <button class="btn kids-btn"
+                                        style="background: #fff; color: #000; padding: 1rem 2rem; border-radius: 12px; font-weight: 700;">Start
+                                        Quest</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
