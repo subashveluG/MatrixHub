@@ -218,6 +218,23 @@
             }
         }
 
+        @media (max-width: 1023px) {
+            .showcase-card {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .showcase-content {
+                order: 2;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .showcase-image-wrapper {
+                order: 1;
+                height: 350px;
+            }
+        }
+
         .showcase-card::before {
             content: '';
             position: absolute;
@@ -448,6 +465,13 @@
 
             .cyber-featurette-grid .btn-row {
                 flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .cyber-featurette-grid>div:first-child {
+                padding: 3rem 1.5rem !important;
+                align-items: center !important;
+                text-align: center !important;
             }
         }
     </style>
@@ -678,7 +702,7 @@
                     <p style="font-size: 1.25rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 3rem;">
                         Harness the power of time and space in this revolutionary physics-based racer. Winner of 50+
                         international awards.</p>
-                    <div style="display: flex; gap: 1.5rem;">
+                    <div class="btn-row" style="display: flex; gap: 1.5rem;">
                         <button class="btn btn-primary" style="padding: 1rem 2.5rem; border-radius: 12px;">Get
                             Game</button>
                         <button class="btn btn-secondary"
