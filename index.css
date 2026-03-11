@@ -38,6 +38,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -222,7 +223,8 @@ button {
 .logo-icon {
   width: 32px;
   height: 32px;
-  background: var(--accent-color);
+  object-fit: contain;
+  background: transparent;
   border-radius: 8px;
   position: relative;
   overflow: hidden;
