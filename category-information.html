@@ -44,9 +44,23 @@
             }
 
             .essential-toolbox-container,
-            .subscription-cta-container {
+            .subscription-cta-container,
+            .tech-radar-container {
                 padding: 2.5rem 1.25rem !important;
                 border-radius: 24px !important;
+            }
+
+            .tech-radar-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .tech-radar-grid h2 {
+                font-size: 2rem !important;
+            }
+
+            .tech-radar-grid p {
+                font-size: 1rem !important;
             }
 
             .subscribe-row {
@@ -474,12 +488,12 @@
         <!-- Tech Radar Section -->
         <section class="section-padding reveal">
             <div class="container">
-                <div
+                <div class="tech-radar-container"
                     style="padding: 5rem; border-radius: 40px; background: #000; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
                     <div
                         style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: var(--accent-color); filter: blur(100px); opacity: 0.1;">
                     </div>
-                    <div class="grid grid-cols-2" style="align-items: center; gap: 4rem;">
+                    <div class="grid grid-cols-2 tech-radar-grid" style="align-items: center; gap: 4rem;">
                         <div style="text-align: left;">
                             <h2 style="font-size: var(--fs-h2); font-weight: 900; margin-bottom: 1.5rem;">
                                 Tech Radar 2026</h2>
